@@ -1,4 +1,4 @@
-package racingcar.domain
+package racingcar.domain.car
 
 import racingcar.exception.ErrorMessage
 import racingcar.util.Util.splitByDelimiter

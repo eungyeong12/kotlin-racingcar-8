@@ -1,4 +1,4 @@
-package racingcar.domain
+package racingcar.domain.car
 
 class Cars private constructor(
     val cars: List<Car>
