@@ -6,10 +6,10 @@ import racingcar.domain.racing.dto.Result
 
 class Racing(
     val cars: Cars,
-    val AttemptCount: AttemptCount
+    val attemptCount: AttemptCount
 ) {
     fun race(): Result {
-        val results = List(AttemptCount.value) {
+        val results = List(attemptCount.value) {
             playRound()
         }
         val winners = decideWinners(results.last())
