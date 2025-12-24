@@ -19,5 +19,7 @@ class RacingCarController {
         val cars = Cars.from(names)
         val racing = Racing(cars, attemptCount)
         val result = racing.race()
+
+        OutputView.displayRacingResult(result)
     }
 }

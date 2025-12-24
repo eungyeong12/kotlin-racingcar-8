@@ -16,7 +16,7 @@ class Round private constructor(
     }
 
     private fun carSortedByDistance(): List<Car> {
-        return cars.sortedWith(compareBy { it.distance })
+        return cars.sortedByDescending { it.distance }
     }
 
     private fun hasSameDistance(first: Car, second: Car): Boolean {
