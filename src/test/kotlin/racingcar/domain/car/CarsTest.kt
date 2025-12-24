@@ -17,9 +17,9 @@ class CarsTest {
         val cars = Cars.from(CarNames.from("pobi,woni"))
 
         // when
-        cars.moveCars(numberProvider)
+        val results = cars.moveCars(numberProvider)
 
         // then
-        assertTrue(cars.cars.all { it.distance == 1 })
+        assertTrue(results.all { it.distance == 1 })
     }
 }

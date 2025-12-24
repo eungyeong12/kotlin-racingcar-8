@@ -1,10 +1,10 @@
 package racingcar.domain.racing
 
-import racingcar.domain.car.Car
 import racingcar.domain.car.Cars
+import racingcar.domain.car.dto.CarDto
 
 class Round private constructor(
-    val cars: List<Car>
+    val cars: List<CarDto>
 ) {
     fun decideWinners(): List<String> {
         val cars = carSortedByDistance()
@@ -15,11 +15,11 @@ class Round private constructor(
         }
     }
 
-    private fun carSortedByDistance(): List<Car> {
+    private fun carSortedByDistance(): List<CarDto> {
         return cars.sortedByDescending { it.distance }
     }
 
-    private fun hasSameDistance(first: Car, second: Car): Boolean {
+    private fun hasSameDistance(first: CarDto, second: CarDto): Boolean {
         return first.distance == second.distance
     }
 

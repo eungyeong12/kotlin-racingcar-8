@@ -1,14 +1,15 @@
 package racingcar.domain.car
 
+import racingcar.domain.car.dto.CarDto
 import racingcar.domain.racing.NumberProvider
 
 class Cars private constructor(
     val cars: List<Car>
 ) {
-    fun moveCars(numberProvider: NumberProvider): List<Car> {
+    fun moveCars(numberProvider: NumberProvider): List<CarDto> {
         return cars.map {
             moveCar(it, numberProvider.pick())
-            it
+            it.toDto()
         }
     }
 

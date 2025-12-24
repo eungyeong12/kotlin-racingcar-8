@@ -8,16 +8,16 @@ class Racing(
     val cars: Cars,
     val attemptCount: AttemptCount
 ) {
-    fun race(): Result {
+    fun race(numberProvider: NumberProvider): Result {
         val results = List(attemptCount.value) {
-            playRound()
+            playRound(numberProvider)
         }
         val winners = decideWinners(results.last())
         return Result(results, winners)
     }
 
-    private fun playRound(): Round {
-        return Round.play(cars, RandomNumberProvider())
+    private fun playRound(numberProvider: NumberProvider): Round {
+        return Round.play(cars, numberProvider)
     }
 
     private fun decideWinners(round: Round): List<String> {
