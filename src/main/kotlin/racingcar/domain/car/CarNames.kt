@@ -1,7 +1,7 @@
 package racingcar.domain.car
 
 import racingcar.exception.ErrorMessage
-import racingcar.util.Util.splitByDelimiter
+import racingcar.parser.Parser.splitByDelimiter
 import racingcar.validator.Validator.validateBlank
 
 @JvmInline

@@ -9,4 +9,9 @@ object Parser {
         requireNotNull(number) { error.message }
         return number
     }
+
+    fun splitByDelimiter(input: String, delimiter: Char): List<String> {
+        return input.split(delimiter)
+            .map { it.trim() }
+    }
 }
