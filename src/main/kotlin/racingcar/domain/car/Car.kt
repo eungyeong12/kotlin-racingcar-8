@@ -2,7 +2,11 @@ package racingcar.domain.car
 
 class Car(
     val name: String,
-    val distance: Int = 0
+    private var _distance: Int = 0
 ) {
+    val distance: Int get() = _distance
 
+    fun moveForward() {
+        _distance++
+    }
 }

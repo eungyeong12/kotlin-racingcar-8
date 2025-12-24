@@ -9,11 +9,11 @@ value class CarNames private constructor(
     val value: List<String>
 ) {
     init {
-        val names = value.map {
+        value.forEach {
             validateBlank(it, ErrorMessage.BLANK_CAR_NAME)
             require(it.length <= LENGTH) { ErrorMessage.TOO_LONG_CAR_NAME.message }
         }
-        require(names.size != names.distinct().size) { ErrorMessage.DUPLICATE_CAR_NAME.message }
+        require(value.size == value.distinct().size) { ErrorMessage.DUPLICATE_CAR_NAME.message }
     }
 
     companion object {
