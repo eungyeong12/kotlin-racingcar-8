@@ -13,7 +13,7 @@ class AttemptCountTest {
         val input = "5"
 
         // when
-        val count = AttemptCount.Companion.from(input).value
+        val count = AttemptCount.from(input).value
 
         // then
         assertEquals(count, 5)
@@ -25,7 +25,7 @@ class AttemptCountTest {
         val input = ""
 
         // when
-        val exception = assertThrows<IllegalArgumentException> { AttemptCount.Companion.from(input) }
+        val exception = assertThrows<IllegalArgumentException> { AttemptCount.from(input) }
 
         // then
         assertEquals(exception.message, ErrorMessage.BLANK_ATTEMPT_COUNT.message)
@@ -37,7 +37,7 @@ class AttemptCountTest {
         val input = "a"
 
         // when
-        val exception = assertThrows<IllegalArgumentException> { AttemptCount.Companion.from(input) }
+        val exception = assertThrows<IllegalArgumentException> { AttemptCount.from(input) }
 
         // then
         assertEquals(exception.message, ErrorMessage.ATTEMPT_COUNT_NOT_INTEGER.message)
@@ -49,7 +49,7 @@ class AttemptCountTest {
         val input = "0"
 
         // when
-        val exception = assertThrows<IllegalArgumentException> { AttemptCount.Companion.from(input) }
+        val exception = assertThrows<IllegalArgumentException> { AttemptCount.from(input) }
 
         // then
         assertEquals(exception.message, ErrorMessage.TOO_SMALL_ATTEMPT_COUNT.message)

@@ -13,7 +13,7 @@ class CarNamesTest {
         val input = "pobi,woni, jun"
 
         // when
-        val names = CarNames.Companion.from(input).value
+        val names = CarNames.from(input).value
 
         // then
         assertEquals(names.size, 3)
@@ -28,7 +28,7 @@ class CarNamesTest {
         val input = ""
 
         // when
-        val exception = assertThrows<IllegalArgumentException> { CarNames.Companion.from(input) }
+        val exception = assertThrows<IllegalArgumentException> { CarNames.from(input) }
 
         // then
         assertEquals(exception.message, ErrorMessage.BLANK_CAR_NAMES_INPUT.message)
@@ -40,7 +40,7 @@ class CarNamesTest {
         val input = "pobi, ,jun"
 
         // when
-        val exception = assertThrows<IllegalArgumentException> { CarNames.Companion.from(input) }
+        val exception = assertThrows<IllegalArgumentException> { CarNames.from(input) }
 
         // then
         assertEquals(exception.message, ErrorMessage.BLANK_CAR_NAME.message)
@@ -52,7 +52,7 @@ class CarNamesTest {
         val input = "eungyeong, pobi"
 
         // when
-        val exception = assertThrows<IllegalArgumentException> { CarNames.Companion.from(input) }
+        val exception = assertThrows<IllegalArgumentException> { CarNames.from(input) }
 
         // then
         assertEquals(exception.message, ErrorMessage.TOO_LONG_CAR_NAME.message)
@@ -64,7 +64,7 @@ class CarNamesTest {
         val input = "pobi, pobi"
 
         // when
-        val exception = assertThrows<IllegalArgumentException> { CarNames.Companion.from(input) }
+        val exception = assertThrows<IllegalArgumentException> { CarNames.from(input) }
 
         // then
         assertEquals(exception.message, ErrorMessage.DUPLICATE_CAR_NAME.message)
