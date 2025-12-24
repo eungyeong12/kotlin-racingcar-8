@@ -1,6 +1,6 @@
 package racingcar.domain.car.dto
 
-data class CarDto(
+data class CarSnapShot(
     val name: String,
     val distance: Int
 )

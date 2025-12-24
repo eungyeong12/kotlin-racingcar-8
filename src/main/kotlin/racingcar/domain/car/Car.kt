@@ -1,6 +1,6 @@
 package racingcar.domain.car
 
-import racingcar.domain.car.dto.CarDto
+import racingcar.domain.car.dto.CarSnapShot
 
 class Car(
     val name: String,
@@ -12,5 +12,5 @@ class Car(
         _distance++
     }
 
-    fun toDto() = CarDto(name, distance)
+    fun toDto() = CarSnapShot(name, distance)
 }
