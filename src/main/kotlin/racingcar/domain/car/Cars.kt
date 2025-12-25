@@ -9,7 +9,7 @@ class Cars private constructor(
     fun moveCars(numberProvider: NumberProvider): List<CarSnapShot> {
         return cars.map {
             moveCar(it, numberProvider.pick())
-            it.toDto()
+            CarSnapShot(it.name, it.distance)
         }
     }
 

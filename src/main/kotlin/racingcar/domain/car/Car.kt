@@ -1,7 +1,5 @@
 package racingcar.domain.car
 
-import racingcar.domain.car.dto.CarSnapShot
-
 class Car(
     val name: String,
     private var _distance: Int = 0
@@ -11,6 +9,4 @@ class Car(
     fun moveForward() {
         _distance++
     }
-
-    fun toDto() = CarSnapShot(name, distance)
 }
