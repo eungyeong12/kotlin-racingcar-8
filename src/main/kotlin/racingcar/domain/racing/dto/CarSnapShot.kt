@@ -1,4 +1,4 @@
-package racingcar.domain.car.dto
+package racingcar.domain.racing.dto
 
 data class CarSnapShot(
     val name: String,

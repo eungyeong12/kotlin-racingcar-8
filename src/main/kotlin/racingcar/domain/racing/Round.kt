@@ -1,7 +1,7 @@
 package racingcar.domain.racing
 
 import racingcar.domain.car.Cars
-import racingcar.domain.car.dto.CarSnapShot
+import racingcar.domain.racing.dto.CarSnapShot
 
 class Round private constructor(
     val cars: List<CarSnapShot>
@@ -25,7 +25,11 @@ class Round private constructor(
 
     companion object {
         fun play(cars: Cars, numberProvider: NumberProvider): Round {
-            return Round(cars.moveCars(numberProvider))
+            val carSnapShots = cars.moveCars(numberProvider)
+                .map {
+                    CarSnapShot(it.name, it.distance)
+                }
+            return Round(carSnapShots)
         }
     }
 }
