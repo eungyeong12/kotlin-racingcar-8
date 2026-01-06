@@ -1,16 +1,24 @@
 package racingcar.controller
 
 import racingcar.domain.Car
+import racingcar.domain.RandomNumberGenerator
+import racingcar.domain.RoundResult
 import racingcar.parser.Parser.parseToNumber
 import racingcar.parser.Parser.splitByDelimiter
 import racingcar.validator.Validator.validateNotBlank
 import racingcar.view.InputView
+import racingcar.view.OutputView
 
 class RacingCarController {
 
     fun run() {
         val cars = getCars()
         val attemptCount = getAttemptCount()
+        val numberGenerator = RandomNumberGenerator()
+        val results = List(attemptCount) {
+            RoundResult(cars.map { it.move(numberGenerator) })
+        }
+        OutputView.printResult(results, results.last().getWinners())
     }
 
     private fun getCars(): List<Car> {
