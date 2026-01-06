@@ -1,6 +1,7 @@
 package racingcar.controller
 
 import racingcar.domain.Car
+import racingcar.parser.Parser.parseToNumber
 import racingcar.parser.Parser.splitByDelimiter
 import racingcar.validator.Validator.validateNotBlank
 import racingcar.view.InputView
@@ -9,6 +10,7 @@ class RacingCarController {
 
     fun run() {
         val cars = getCars()
+        val attemptCount = getAttemptCount()
     }
 
     private fun getCars(): List<Car> {
@@ -20,6 +22,13 @@ class RacingCarController {
             }
         require(cars.size >= 2) { "[ERROR] 자동차는 2대 이상이어야 합니다." }
         return cars
+    }
+
+    private fun getAttemptCount(): Int {
+        val input = readNotBlankInput()
+        val number = parseToNumber(input)
+        require(number >= 1) { "[ERROR] 시도할 횟수는 1회 이상이어야 합니다." }
+        return number
     }
 
     private fun readNotBlankInput(): String {
